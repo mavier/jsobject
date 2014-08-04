@@ -7,10 +7,10 @@ detox-test:
 travis-test: test
 
 test: env
-	.env/bin/nosetests -w tests
+	.env/bin/nosetests
 
 coverage-test: env
-	.env/bin/coverage run .env/bin/nosetests -w tests
+	.env/bin/coverage run .env/bin/nosetests
 
 env: .env/.up-to-date
 
