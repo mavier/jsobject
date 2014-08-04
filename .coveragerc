@@ -1,0 +1,10 @@
+run]
+branch = True
+parallel = True
+data_file = build/.coverage
+
+[report]
+include=jsobject.py
+
+[html]
+directory = build/coverage
