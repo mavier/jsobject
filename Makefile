@@ -18,7 +18,6 @@ env: .env/.up-to-date
 	virtualenv .env
 	.env/bin/pip install -e .
 	.env/bin/pip install nose
-	.env/bin/pip install coveralls
 	touch .env/.up-to-date
 
 doc: env

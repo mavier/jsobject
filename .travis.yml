@@ -5,6 +5,7 @@ python:
 
 install:
   - "python setup.py install"
+  - pip install coveralls
 
 # python setup.py test
 script: make travis-test
