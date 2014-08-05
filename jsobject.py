@@ -35,7 +35,7 @@ class jsobject(object):
         pass
 
     def loads(self, data):
-        self._data = loads(data)
+        self._data = data
 
     def data(self):
         return self._data
@@ -64,7 +64,7 @@ class jsobject(object):
                 self._path = self.__class__.__name__
                 raise AttributeError('object has no attribut ' + path)
 
-def __setattr__(self, name, value):
+    def __setattr__(self, name, value):
         # print "->", str(name)
         if name[0]=="_":
             self.__dict__[name] = value
