@@ -1,4 +1,4 @@
-run]
+[run]
 branch = True
 parallel = True
 data_file = build/.coverage
