@@ -55,7 +55,7 @@ class JsobjectPyObjectTestCase(unittest.TestCase):
         assert self.js.array == self.data['array']
 
     def test_get_object(self):
-        assert self.js.objectA == self.data['objectA']
+        assert self.js.objectA != self.data['objectA']
 
     def test_get_object_a(self):
         assert self.js.objectA.a == self.data['objectA']['a']

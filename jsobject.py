@@ -41,28 +41,29 @@ class jsobject(object):
         return self._data
 
     def __getattr__(self, name):
-            # print "-----> GET:", name
-            if name[0] == "_":
-                return self.__dict__[name]
-            # print "2->", name, self._current
-            if self._current == {}:
-                self._current = self._data
-            if name in self._current:
-                if type(self._current[name]) == dict:
-                    self._current = self._current[name]
-                    self._current2 = self._current
-                    self._path += ".%s" % name
-                    return self
-                else:
-                    value = self._current[name]
-                    self._current = {}
-                    self._path = self.__class__.__name__
-                    return value
+        # print "-----> GET:", name
+        if name[0] == "_":
+            return self.__dict__[name]
+        # print "2->", name, self._current
+        if self._current == {}:
+            self._current = self._data
+        if name in self._current:
+            if type(self._current[name]) == dict:
+                self._current = self._current[name]
+                self._current2 = self._current
+                self._path += ".%s" % name
+                return self
             else:
-                path = self._path + "." + name
+                value = self._current[name]
                 self._current = {}
                 self._path = self.__class__.__name__
-                raise AttributeError('object has no attribut ' + path)
+                return value
+        else:
+            path = self._path + "." + name
+            value = self._current
+            self._current = {}
+            self._path = self.__class__.__name__
+            raise AttributeError('object has no attribut ' + path)
 
     def __setattr__(self, name, value):
         # print "->", str(name)
