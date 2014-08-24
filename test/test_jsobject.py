@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from jsobject import jsobject as JS
+from jsobject import jsobject as Js
 
 """Tests for jsobject created from python dict"""
 
-class JsobjectPyObjectTestCase(unittest.TestCase):
+class jsobjectpyobjecttestcase(unittest.testcase):
 
-    _multiprocess_can_split_ = True
+    _multiprocess_can_split_ = true
 
-    def setUp(self):
+    def setup(self):
         self.data = {
           "array": [
             1,
@@ -34,7 +34,7 @@ class JsobjectPyObjectTestCase(unittest.TestCase):
           "string": "Hello World"
         }
 
-        self.js = JS(self.data)
+        self.js = Js(self.data)
 
     def tearDown(self):
         pass
@@ -62,4 +62,10 @@ class JsobjectPyObjectTestCase(unittest.TestCase):
 
     def test_get_object_b(self):
         assert self.js.objectA.c == self.data['objectA']['c']
+
+    def test_get_object_g(self):
+        assert self.js.objectA.g == self.data['objectA']['g']
+
+    def test_get_object_h(self):
+        assert self.js.objectA.g.h == self.data['objectA']['g']['h']
 
