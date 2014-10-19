@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-Jsobject is simple implementation JavaScript-Style Objects in Python.
+JsObject is simple implementation JavaScript-Style Objects in Python.
 
 Homepage and documentation: http://mavier.github.io/jsobject.
 
@@ -12,93 +12,46 @@ License: MIT (see LICENSE for details)
 from __future__ import with_statement
 
 __author__ = 'Marcin Wierzbanowski'
-__version__ = '0.0.2-dev'
+__version__ = '0.9.0'
 __license__ = 'MIT'
 
-try: from simplejson import dumps, loads
-except ImportError:
-    try: from json import dumps, loads
-    except ImportError:
-        try: from django.utils.simplejson import dumps, loads
-        except ImportError:
-            def dumps(data):
-                raise ImportError("JSON support requires Python 2.6 or simplejson.")
-            loads = dumps
-
-class jsobject(object):
-    _locked = False
+class JsObject(object):
     def __init__(self, data):
-        self._current = {}
-        self._current2 = {}
-        self._path = self.__class__.__name__
-        self.loads(data)
-        pass
+        for k, v in self.__get(data).iteritems():
+            self.__dict__[k] = self.__set(v)
 
-    def loads(self, data):
-        self._data = data
+    def __setattr__(self, k, v):
+        self.__dict__[k] = JsObject(v) if type(v) == dict else v
 
-    def data(self):
-        return self._data
+    def __dump(self):
+        return {k: self.__get(v) for k, v in self.__dict__.iteritems()}
+
+    def __get(self, v):
+        return v.__dump() if type(v) == JsObject else v
+
+    def __set(self, v):
+        return JsObject(v) if type(v) == dict else v
 
     def __str__(self):
-        value = str(self._current)
-        self._current = {}
-        self._current2 = {}
-        return value
+        return str(self.__dump())
 
-    def __getattr__(self, name):
-        # print "1-> GET:", name
-        if name[0] == "_":
-            return self.__dict__[name]
-        print "2->", name, self._current
-        if self._current == {}:
-            self._current = self._data
-        if name in self._current:
-            if type(self._current[name]) == dict:
-                self._current = self._current[name]
-                self._current2 = self._current
-                self._path += ".%s" % name
-                return self
-            else:
-                value = self._current[name]
-                self._current = {}
-                self._path = self.__class__.__name__
-                return value
-        else:
-            path = self._path + "." + name
-            value = self._current
-            self._current = {}
-            self._path = self.__class__.__name__
-            raise AttributeError('object has no attribut ' + path)
+    def __repr__(self):
+        return str(self.__dump())
 
-    def __setattr__(self, name, value):
-        # print "->", str(name)
-        if name[0]=="_":
-            self.__dict__[name] = value
-            return
-        if self._current2 == {}:
-            self._current2 = self._data
-        if name in self._current2:
-            if type(self._current2[name]) == dict:
-                # print "dict"
-                self._current2 = self._current2[name]
-            else:
-                # print "nodict"
-                self._current2[name] = value
-        else:
-            # print "n:", name, self._current2
-            # print self._current2
-            self._current2[name] = value
-            self._current2 = {}
+    def __eq__(self, other):
+        return str(self) == str(other)
 
-def __str__(self):
-    output = str(self._current)
-    self._current = {}
-    return output
+    def __contains__(self, k):
+        return k in self.__dict__
 
-# THE END
+    def __len__(self):
+        return len(self.__dict__)
 
 if __name__ == "__main__":
+
+    def d(data):
+        print dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
+
     data = {
       "array": [
         1,
@@ -122,23 +75,58 @@ if __name__ == "__main__":
       "string": "Hello World"
     }
 
-    def dump(c):
-        print "---------"
-        print "c1:", c._current
-        print "c2:", c._current2
-        print "---------"
-        print c._data
-        print "---------"
+    js = JsObject(data)
+    js2 = JsObject(js)
 
-    c = jsobject(data)
+    js.name = 5
+    js.nameDict = {}
+    js.nameDict2 = {"objectB": "b"}
+    js.nameDict3 = {"objectC": {"a": "A", "b":"B"}}
+
+    print js.name == 5
+    print js.nameDict
+    print js.nameDict2
+    print js.nameDict3
+    print js.nameDict3.objectC
+    print js.nameDict3.objectC.a
+    print "--"
+    print type(js.nameDict)
+    print type(js.nameDict2)
+    print type(js.nameDict3)
+    print type(js.nameDict3.objectC)
+    print "--"
+    print js
+
+    print js.string == data['string']
+    print js.number == data['number']
+    print js.null == data['null']
+    print js.boolean == data['boolean']
+    print js.array == data['array']
+    print js.objectA != data['objectA']
+    print js.objectA
+    print data['objectA']
+    print js.objectA.a == data['objectA']['a']
+    print js.objectA.c == data['objectA']['c']
+    print js.objectA.g == data['objectA']['g']
+    print js.objectA.g.h == data['objectA']['g']['h']
+    print "string" in js
+    print len(js)
+
+    c = JsObject(data)
 
     print "--- 0 ------"
     print c.string
     print c.objectA
 
+    print "set -- 0 ------"
+    c.string = "str2"
+    c.objectA.g.h = "BBB"
+
     print "--- 1 ------"
     print c.string
+    print c.objectA.g.h
     print c.objectA
+
 
     print "--- 2 ------"
     print c.string
@@ -150,35 +138,41 @@ if __name__ == "__main__":
 
     print c.number
     print c.objectA.e
-    try:
-        print c.objectA.e2
-    except:
-        print "err e2"
-        pass
-
-    print c.objectA
-    print c.number
 
     print "--- 4 ------"
+    try:
+        print c.objectA.e2
+    except BaseException:
+        print "err e2"
 
-    c.string = "str2"
-    c.objectA.g.h = "BBB"
+    print "--- 5 ------"
 
-    dump(c)
+    c.string = "str4"
+    print c.string
 
+    c.objectA.e = "ccc"
+    print c.objectA.e
+
+    print "--- 6------"
     print c.objectA.g.h
 
-    dump(c)
+    print "--- 7------"
+    c.objectA = {"a": "AAA"}
+    print c.objectA
 
-    # c.objectA = {"a": "AAA"}
-    # print c.objectA
+    print "--- 8 ------"
+    c.string = "str2"
+    print c.string
 
-    # print "--- 5 ------"
-    #
-    # c.string = "str2"
-    # c.objectB = {}
-    # c.objectB = {"a": "AAA"}
-    # print "---------"
-    # print c.objectB
-    # c.objectB.a.c = "BBB"
-    # print c.data()
+    print "--- 9 ------"
+    c.objectB = {}
+    print c.objectB
+
+    c.objectB = {"a": {"c": "CCC"}}
+    print c.objectB
+
+    print "---- 10 -----"
+    c.objectB.a.c = "BBB"
+    print c.objectB.a.c
+
+    print "---- 11 -----"
