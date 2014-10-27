@@ -15,7 +15,7 @@ __author__ = 'Marcin Wierzbanowski'
 __version__ = '0.9.0'
 __license__ = 'MIT'
 
-class JsObject(object):
+class Object(object):
     def __init__(self, data):
         for k, v in self.__get(data).iteritems():
             self.__dict__[k] = self.__set(v)

@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
-from jsobject import jsobject as Js
+from jsobject import Object
 
 """Tests for jsobject created from python dict"""
 
@@ -34,7 +34,7 @@ class jsobjectpyobjecttestcase(unittest.testcase):
           "string": "Hello World"
         }
 
-        self.js = Js(self.data)
+        self.js = Object(self.data)
 
     def tearDown(self):
         pass
