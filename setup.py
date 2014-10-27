@@ -28,7 +28,7 @@ setup(
     scripts          = ['jsobject.py'],
     license          = 'MIT',
     platforms        = 'any',
-    keywords         = ['jsobject', 'JsObject', 'json', 'chain', 'javascript', 'object'],
+    keywords         = ['jsobject', 'Object', 'json', 'chain', 'javascript'],
     classifiers      = [
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',

@@ -21,16 +21,16 @@ class Object(object):
             self.__dict__[k] = self.__set(v)
 
     def __setattr__(self, k, v):
-        self.__dict__[k] = JsObject(v) if type(v) == dict else v
+        self.__dict__[k] = Object(v) if type(v) == dict else v
 
     def __dump(self):
         return {k: self.__get(v) for k, v in self.__dict__.iteritems()}
 
     def __get(self, v):
-        return v.__dump() if type(v) == JsObject else v
+        return v.__dump() if type(v) == Object else v
 
     def __set(self, v):
-        return JsObject(v) if type(v) == dict else v
+        return Object(v) if type(v) == dict else v
 
     def __str__(self):
         return str(self.__dump())
@@ -75,8 +75,9 @@ if __name__ == "__main__":
       "string": "Hello World"
     }
 
-    js = JsObject(data)
-    js2 = JsObject(js)
+    js = Object(data)
+    js2 = Object(js)
+    # js3 = Object([1,2,3])
 
     js.name = 5
     js.nameDict = {}
@@ -112,7 +113,7 @@ if __name__ == "__main__":
     print "string" in js
     print len(js)
 
-    c = JsObject(data)
+    c = Object(data)
 
     print "--- 0 ------"
     print c.string
