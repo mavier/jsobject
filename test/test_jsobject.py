@@ -1,16 +1,15 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import unittest
 from jsobject import Object
+import unittest
 
 """Tests for jsobject created from python dict"""
 
-class jsobjectpyobjecttestcase(unittest.testcase):
+class JsobjectPyobjectTestcase(unittest.TestCase):
 
-    _multiprocess_can_split_ = true
+    _multiprocess_can_split_ = True
 
-    def setup(self):
+    def setUp(self):
         self.data = {
           "array": [
             1,
@@ -33,7 +32,6 @@ class jsobjectpyobjecttestcase(unittest.testcase):
           },
           "string": "Hello World"
         }
-
         self.js = Object(self.data)
 
     def tearDown(self):
@@ -55,7 +53,7 @@ class jsobjectpyobjecttestcase(unittest.testcase):
         assert self.js.array == self.data['array']
 
     def test_get_object(self):
-        assert self.js.objectA != self.data['objectA']
+        assert self.js.objectA == self.data['objectA']
 
     def test_get_object_a(self):
         assert self.js.objectA.a == self.data['objectA']['a']

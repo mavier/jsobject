@@ -5,12 +5,12 @@ import sys
 import os
 
 try:
-    from setuptools import setup
+    from setuptools import setup, find_packages
 except ImportError:
-    from distutils.core import setup
+    from distutils.core import setup, find_packages
 
-if sys.version_info < (2,5):
-    raise NotImplementedError("Sorry, you need at least Python 2.5 or Python 3.x to use jsobject.")
+if sys.version_info < (2,6):
+    raise NotImplementedError("Sorry, you need at least Python 2.6 or Python 3.x to use jsobject.")
 
 import jsobject
 HERE = os.path.abspath(os.path.dirname(__file__))
@@ -25,7 +25,7 @@ setup(
     author_email     = 'marcin@wierzbanowski.com',
     url              = 'http://mavier.github.io/jsobject',
     py_modules       = ['jsobject'],
-    scripts          = ['jsobject.py'],
+    packages         = find_packages(),
     license          = 'MIT',
     platforms        = 'any',
     keywords         = ['jsobject', 'Object', 'json', 'chain', 'javascript'],
@@ -39,7 +39,6 @@ setup(
         'Topic :: Software Development :: Libraries',
         'Topic :: Utilities',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.5',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',

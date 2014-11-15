@@ -17,14 +17,14 @@ __license__ = 'MIT'
 
 class Object(object):
     def __init__(self, data):
-        for k, v in self.__get(data).iteritems():
+        for k, v in self.__get(data).items():
             self.__dict__[k] = self.__set(v)
 
     def __setattr__(self, k, v):
         self.__dict__[k] = Object(v) if type(v) == dict else v
 
     def __dump(self):
-        return {k: self.__get(v) for k, v in self.__dict__.iteritems()}
+            return dict((k, self.__get(v)) for (k, v) in self.__dict__.items())
 
     def __get(self, v):
         return v.__dump() if type(v) == Object else v
@@ -47,6 +47,9 @@ class Object(object):
     def __len__(self):
         return len(self.__dict__)
 
+    def __getitem__(self, k):
+        return self.__dict__[k]
+"""
 if __name__ == "__main__":
 
     def d(data):
@@ -85,6 +88,7 @@ if __name__ == "__main__":
     js.nameDict3 = {"objectC": {"a": "A", "b":"B"}}
 
     print js.name == 5
+    print js['name'] == 5
     print js.nameDict
     print js.nameDict2
     print js.nameDict3
@@ -177,3 +181,4 @@ if __name__ == "__main__":
     print c.objectB.a.c
 
     print "---- 11 -----"
+"""
