@@ -14,7 +14,7 @@ install:
 script: nosetests -v
 
 after_success:
-  coveralls
+  - coveralls
 
 notifications:
   email: true
