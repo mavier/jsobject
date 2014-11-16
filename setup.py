@@ -3,6 +3,7 @@
 
 import sys
 import os
+import multiprocessing
 
 try:
     from setuptools import setup, find_packages
@@ -31,6 +32,12 @@ setup(
     license='MIT',
     platforms='any',
     keywords=['jsobject', 'Object', 'json', 'chain', 'javascript'],
+    test_suite = "nose",
+    tests_require = [
+        'nose',
+        'coverage',
+        'python-coveralls',
+    ],
     classifiers=[
         'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
