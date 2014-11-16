@@ -57,6 +57,8 @@ Install the latest stable release with ``pip install jsobject``, ``easy_install 
 Testing
 _______
 
+To run the tests use the `nosetest`.
+
 .. image:: https://travis-ci.org/mavier/jsobject.png?branch=master
     :target: https://travis-ci.org/mavier/jsobject
 
