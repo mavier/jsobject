@@ -15,7 +15,7 @@ install:
 # command to run tests
 script: nosetests --with-coverage
 
-after_success: coveralls -d `ls .coverage.note*`
+after_success: coveralls
 
 notifications:
   email: true
