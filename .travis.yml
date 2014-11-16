@@ -11,7 +11,9 @@ install:
 - pip install coverage
 - pip install python-coveralls
 script: nosetests
-after_success: coveralls
+after_success:
+  - coverage combine
+  - coveralls
 notifications:
   email: true
 deploy:
