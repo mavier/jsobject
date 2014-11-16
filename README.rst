@@ -34,7 +34,7 @@ Example: "Hello World" with jsobject
 Download and Install
 --------------------
 
-Install the latest stable release with ``pip install jsobject``, ``easy_install -U jsobject`` or download `jsobject.py <https://github.com/mavier/jsobject/raw/master/jsobject.py>`__ (unstable) into your project directory. There are no hard dependencies other than the Python standard library. Jsobject runs with **Python 2.5+ and 3.x**.
+Install the latest stable release with ``pip install jsobject``, ``easy_install -U jsobject`` or download `jsobject.py <https://github.com/mavier/jsobject/raw/master/jsobject.py>`__ (unstable) into your project directory. There are no hard dependencies other than the Python standard library. Jsobject runs with **Python 2.6+ and 3.x**.
 
 Testing
 _______
