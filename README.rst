@@ -36,26 +36,18 @@ Example: "Hello World" with jsobject
     "boolean": True,
     "null": None,
     "number": 123,
-    "objectA": {
-        "a": "b",
-        "c": {
-            "d": "e",
-            "f": {
-                "g": "h"
-                }
-            }
-        }
+    "objectA": {'a': 'b', 'c': {'d': 'e', 'f': {'g': 'h'}}}
     }
 
   jso = Object(data)
 
-  print jso.boolean         # True
-  print jso.null            # None
-  print jso.number          # 123
-  print jso.objectA         # {'a': 'b', 'c': {'d': 'e', 'f': {'g': 'h'}}}
-  print jso.objectA.a       # b
-  print jso.objectA.c.d     # e
-  print jso.objectA.c.f.g   # h
+  print(jso.boolean)       # True
+  print(jso.null)          # None
+  print(jso.number)        # 123
+  print(jso.objectA)       # {'a': 'b', 'c': {'d': 'e', 'f': {'g': 'h'}}}
+  print(jso.objectA.a)     # b
+  print(jso.objectA.c.d)   # e
+  print(jso.objectA.c.f.g) # h
 
 Download and Install
 --------------------
