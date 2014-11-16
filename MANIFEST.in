@@ -1,4 +1,4 @@
-global-include VERSION
 include *.py
 include *.txt
 include *.rst
+global-include VERSION

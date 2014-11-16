@@ -2,7 +2,7 @@
 branch = True
 parallel = True
 omit =
-    */test/*
+    */tests/*
     */python?.?/*
     */site-packages/nose/*
 
