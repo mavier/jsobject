@@ -50,3 +50,10 @@ License
 -------
 
 Code and documentation are available according to the `MIT License <https://raw.github.com/mavier/jsobject/master/LICENSE>`__.
+
+Tips
+-------
+
+.. image:: http://img.shields.io/gratipay/mavier.svg
+    :target: https://gratipay.com/mavier
+    :alt: Tips
