@@ -1,3 +1,23 @@
 [run]
 branch = True
 parallel = True
+omit =
+    */test/*
+    */python?.?/*
+    */site-packages/nose/*
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    pragma: no cover
+    def __repr__
+    if self\.debug
+    raise AssertionError
+    raise NotImplementedError
+    if 0:
+    if __name__ == .__main__.:
+
+ignore_errors = True
+
+[html]
+directory = coverage_html_report
