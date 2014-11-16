@@ -1,21 +1,22 @@
 language: python
 python:
-  - "2.6"
-  - "2.7"
-  - "3.2"
-  - "3.3"
-  - "3.4"
-
+- '2.6'
+- '2.7'
+- '3.2'
+- '3.3'
+- '3.4'
 install:
-  - "pip install ."
-  - "pip install coverage"
-  - "pip install python-coveralls"
-  - "pip install nose"
-
-# command to run tests
+- pip install .
+- pip install coverage
+- pip install python-coveralls
+- pip install nose
 script: nosetests --with-coverage
-
 after_success: coveralls
-
 notifications:
   email: true
+deploy:
+  provider: pypi
+  user: mavier
+  password:
+    secure: Is4yyFIyPi7+L50CZ0KSE8GF37Ag/HHN2uPisOtP4ai/uU3M4j3Ju1AQS2rf7lEEDF4XVnAaf+xa5oLpxPeEmtG+lCXleg/28Tbrmfi7l8GMUVlB5PaF4Yaj4/qjyVGGQil9TxxyNgc94EO/S+7LxY2FmcXpiJK+uRjKuhelY6E=
+
