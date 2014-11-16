@@ -8,7 +8,9 @@ python:
 
 install:
   - "pip install ."
-  - "pip install coveralls"
+  - "pip install coverage"
+  - "pip install python-coveralls"
+  - "pip install nose"
 
 # command to run tests
 script: nosetests --with-coverage
