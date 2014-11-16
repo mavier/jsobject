@@ -13,24 +13,23 @@ class ObjectTestcase(unittest.TestCase):
 
     def setUp(self):
         self.data = {
-            "array":
-                [1, 2, 3],
-                "boolean": True,
-                "null": None,
-                "number": 123,
-                "objectA": {
-                    "a": "b",
-                    "c": "d",
-                    "e": "f",
-                    "g": {
-                        "h": "i",
-                        "j": {
-                            "k": "l"
-                            }
-                        },
+            "array": [1, 2, 3],
+            "boolean": True,
+            "null": None,
+            "number": 123,
+            "objectA": {
+                "a": "b",
+                "c": "d",
+                "e": "f",
+                "g": {
+                    "h": "i",
+                    "j": {
+                        "k": "l"
+                        }
                     },
-                "string": "Hello World",
-                }
+                },
+            "string": "Hello World",
+            }
 
         self.js = Object(self.data)
 

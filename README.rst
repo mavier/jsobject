@@ -14,8 +14,8 @@
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: License
 
-.. image:: https://pypip.in/status/<PYPI_PKG_NAME>/badge.svg
-    :target: https://pypi.python.org/pypi/<PYPI_PKG_NAME>/
+.. image:: https://pypip.in/status/jsobject/badge.svg
+    :target: https://pypi.python.org/pypi/jsobject/
     :alt: Development Status
 
 jsobject: Objects for Humans
@@ -32,8 +32,30 @@ Example: "Hello World" with jsobject
 .. code-block:: python
 
   from jsobject import Object
+  data = {
+    "boolean": True,
+    "null": None,
+    "number": 123,
+    "objectA": {
+        "a": "b",
+        "c": {
+            "d": "e",
+            "f": {
+                "g": "h"
+                }
+            }
+        }
+    }
 
+  jso = Object(data)
 
+  print jso.boolean         # True
+  print jso.null            # None
+  print jso.number          # 123
+  print jso.objectA         # {'a': 'b', 'c': {'d': 'e', 'f': {'g': 'h'}}}
+  print jso.objectA.a       # b
+  print jso.objectA.c.d     # e
+  print jso.objectA.c.f.g   # h
 
 Download and Install
 --------------------
