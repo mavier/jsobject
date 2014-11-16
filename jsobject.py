@@ -8,11 +8,12 @@ Homepage and documentation: http://mavier.github.io/jsobject.
 Copyright (c) 2014, Marcin Wierzbanowski.
 License: MIT (see LICENSE for details)
 """
-
 from __future__ import with_statement
+import os
+HERE = os.path.abspath(os.path.dirname(__file__))
 
 __author__ = 'Marcin Wierzbanowski'
-__version__ = '0.9.3'
+__version__ = open(os.path.join(HERE, 'VERSION')).read()[:-1]
 __license__ = 'MIT'
 
 
