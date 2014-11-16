@@ -37,6 +37,9 @@ class JsobjectPyobjectTestcase(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_len(self):
+        assert len(self.js) == len(self.data)
+
     def test_get_string(self):
         assert self.js.string == self.data['string']
 
@@ -66,4 +69,11 @@ class JsobjectPyobjectTestcase(unittest.TestCase):
 
     def test_get_object_h(self):
         assert self.js.objectA.g.h == self.data['objectA']['g']['h']
+
+    def test_object_contain(self):
+        assert "objectA" in self.js
+
+    def test_set_get(self):
+        self.js.__setattr__("test", "TEST")
+        assert self.js.__getitem__('test') == "TEST"
 
