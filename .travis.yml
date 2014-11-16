@@ -21,5 +21,4 @@ deploy:
     secure: Is4yyFIyPi7+L50CZ0KSE8GF37Ag/HHN2uPisOtP4ai/uU3M4j3Ju1AQS2rf7lEEDF4XVnAaf+xa5oLpxPeEmtG+lCXleg/28Tbrmfi7l8GMUVlB5PaF4Yaj4/qjyVGGQil9TxxyNgc94EO/S+7LxY2FmcXpiJK+uRjKuhelY6E=
   on:
     tags: true
-    branch: master
-
+    all_branches: true
