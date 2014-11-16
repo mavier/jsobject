@@ -27,7 +27,7 @@ Example: "Hello World" with jsobject
 
 .. code-block:: python
 
-  import jsobject
+  from jsobject import Object
 
 
 
