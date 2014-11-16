@@ -17,6 +17,8 @@ __license__ = 'MIT'
 
 
 class Object(object):
+    """ This is a base class """
+
     def __init__(self, data):
         for k, v in self.__get(data).items():
             self.__dict__[k] = self.__set(v)
