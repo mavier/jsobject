@@ -54,6 +54,6 @@ Code and documentation are available according to the `MIT License <https://raw.
 Tips
 -------
 
-.. image:: http://img.shields.io/gratipay/mavier.svg
+.. image:: https://img.shields.io/gratipay/mavier.svg
     :target: https://gratipay.com/mavier
     :alt: Tips
