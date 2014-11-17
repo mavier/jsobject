@@ -69,6 +69,9 @@ class ObjectTestcase(unittest.TestCase):
     def test_get_object_h(self):
         assert self.js.objectA.g.h == self.data['objectA']['g']['h']
 
+    def test_get_key(self):
+        assert self.js['objectA'] == self.data['objectA']
+
     def test_object_contain(self):
         assert "objectA" in self.js
 
@@ -99,6 +102,10 @@ class ObjectTestcase(unittest.TestCase):
 
     def test_set_array(self):
         self.js.array = [4, 5, 6]
+
+    def test_set_key(self):
+        self.js['objectA'] = {"a": "A"}
+        assert self.js.objectA.a == "A"
 
     def test_set_object(self):
         self.js.objectA = {"a": "A"}

@@ -56,3 +56,6 @@ class Object(object):
 
     def __getitem__(self, k):
         return self.__dict__[k]
+
+    def __setitem__(self, k, v):
+        self.__dict__[k] = Object(v) if type(v) == dict else v
