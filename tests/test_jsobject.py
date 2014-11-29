@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
-
-
 import unittest
-from nose.tools import raises
+import pytest
+from jsobject import Object
 
 """Tests for jsobject created from python dict"""
 
@@ -123,11 +122,10 @@ class ObjectTestcase(unittest.TestCase):
     def test_set_object_h(self):
         self.js.objectA.g.h = {"j": "J"}
 
-    @raises(TypeError, ValueError)
+    @pytest.mark.xfail(raises=TypeError)
     def test_create_list(self):
         Object([1, 2, 3])
-        raise TypeError("argument must be dict, not list")
 
-    @raises(AttributeError, ValueError)
+    @pytest.mark.xfail(raises=AttributeError)
     def test_get_not_exist(self):
-        raise AttributeError("'Object' object has no attribute 'e2'")
+        self.js.objectA.e2 
