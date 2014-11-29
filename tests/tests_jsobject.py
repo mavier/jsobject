@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from jsobject import Object
+
+
 import unittest
 from nose.tools import raises
 
