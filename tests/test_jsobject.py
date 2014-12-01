@@ -122,10 +122,15 @@ class ObjectTestcase(unittest.TestCase):
     def test_set_object_h(self):
         self.js.objectA.g.h = {"j": "J"}
 
-    @pytest.mark.xfail(raises=TypeError)
     def test_create_list(self):
-        Object([1, 2, 3])
+	with pytest.raises(TypeError):
+            Object([1, 2, 3])
 
-    @pytest.mark.xfail(raises=AttributeError)
     def test_get_not_exist(self):
-        self.js.objectA.e2 
+	with pytest.raises(AttributeError):
+            self.js.objectA.e2 
+
+    def test_dump(self):
+        import json
+        json.dumps(self.js.get(), sort_keys=True,
+                   indent=4, separators=(',', ': '))

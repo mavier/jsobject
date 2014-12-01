@@ -30,20 +30,20 @@ class Object(object):
     def __setattr__(self, k, v):
         self.__dict__[k] = Object(v) if type(v) == dict else v
 
-    def __dump(self):
+    def get(self):
             return dict((k, self.__get(v)) for (k, v) in self.__dict__.items())
 
     def __get(self, v):
-        return v.__dump() if type(v) == Object else v
+        return v.get() if type(v) == Object else v
 
     def __set(self, v):
-        return Object(v) if type(v) == dict else v
+	    return Object(v) if type(v) == dict else v
 
     def __str__(self):
-        return str(self.__dump())
+        return str(self.get())
 
     def __repr__(self):
-        return str(self.__dump())
+        return str(self.get())
 
     def __eq__(self, other):
         return str(self) == str(other)
