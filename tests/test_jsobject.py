@@ -123,12 +123,12 @@ class ObjectTestcase(unittest.TestCase):
         self.js.objectA.g.h = {"j": "J"}
 
     def test_create_list(self):
-	with pytest.raises(TypeError):
+        with pytest.raises(TypeError):
             Object([1, 2, 3])
 
     def test_get_not_exist(self):
-	with pytest.raises(AttributeError):
-            self.js.objectA.e2 
+        with pytest.raises(AttributeError):
+            self.js.objectA.e2
 
     def test_dump(self):
         import json

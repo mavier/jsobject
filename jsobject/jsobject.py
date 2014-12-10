@@ -22,7 +22,8 @@ class Object(object):
 
     def __init__(self, data={}):
         if type(data) not in (dict, Object):
-            raise TypeError("argument must be dict, not %s" % type(data).__name__)
+            raise TypeError("argument must be dict, not %s"
+                            % type(data).__name__)
 
         for k, v in self.__get(data).items():
             self.__dict__[k] = self.__set(v)
@@ -37,7 +38,7 @@ class Object(object):
         return v.get() if type(v) == Object else v
 
     def __set(self, v):
-	    return Object(v) if type(v) == dict else v
+        return Object(v) if type(v) == dict else v
 
     def __str__(self):
         return str(self.get())

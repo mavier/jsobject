@@ -1,1 +1,1 @@
-from .jsobject import Object
+from .jsobject import Object  # noqa
