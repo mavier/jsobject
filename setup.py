@@ -52,7 +52,6 @@ setup(
     author_email='marcin@wierzbanowski.com',
     url='http://mavier.github.io/jsobject',
     packages=find_packages(exclude=['ez_setup', 'tests', 'tests.*']),
-    data_files=['VERSION'],
     tests_require=['pytest'],
     cmdclass={'test': PyTest},
     license='MIT',
