@@ -6,9 +6,7 @@ python:
 - '3.3'
 - '3.4'
 install:
-- export GIT_TAG=`git describe --tags | cut -c 2-`
-- echo -n $GIT_TAG > VERSION
-- cat VERSION
+- git describe --tags | cut -c 2- > VERSION
 - python setup.py install
 - pip install coverage
 - pip install python-coveralls
