@@ -13,7 +13,8 @@ import os
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 __author__ = 'Marcin Wierzbanowski'
-__version__ = open(os.path.join(HERE, '..', 'VERSION')).read()[:-1]
+__version__ = '0.9.22'
+# open(os.path.join(HERE, '..', 'VERSION')).read()[:-1]
 __license__ = 'MIT'
 
 
