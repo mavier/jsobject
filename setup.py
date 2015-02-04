@@ -30,17 +30,18 @@ class PyTest(TestCommand):
 
     def run_tests(self):
         import pytest
-        errno = pytest.main(self.pytest_args)
+        errno = pytest.main(self.pytest_args)v
         sys.exit(errno)
 
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 readme = open(os.path.join(HERE, 'README.rst')).read()
 
-if not os.path.exists('VERSION'):
-    os.system("git describe --tags | cut -c 2- > VERSION")
+# if not os.path.exists('VERSION'):
+#     os.system("git describe --tags | cut -c 2- > VERSION")
 
-version = open(os.path.join(HERE, 'VERSION')).read()[:-1]
+version = '0.9.22'
+# open(os.path.join(HERE, 'VERSION')).read()[:-1]
 
 setup(
     name='jsobject',
