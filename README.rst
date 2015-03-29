@@ -71,9 +71,8 @@ License
 
 Code and documentation are available according to the `MIT License <https://raw.github.com/mavier/jsobject/master/LICENSE>`__.
 
-Tips
--------
+https://docs.python.org/3/library/json.html
+https://docs.python.org/2/library/functions.html
+https://docs.python.org/2/library/collections.html
+https://docs.python.org/2/library/json.html
 
-.. image:: https://img.shields.io/gratipay/mavier.svg
-    :target: https://gratipay.com/mavier
-    :alt: Tips
