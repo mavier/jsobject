@@ -40,7 +40,7 @@ readme = open(os.path.join(HERE, 'README.rst')).read()
 # if not os.path.exists('VERSION'):
 #     os.system("git describe --tags | cut -c 2- > VERSION")
 
-version = '0.10.2'
+version = '0.10.3'
 # open(os.path.join(HERE, 'VERSION')).read()[:-1]
 
 setup(
