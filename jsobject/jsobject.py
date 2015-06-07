@@ -1,6 +1,12 @@
 # -*- coding: utf-8 -*-
 
 class Object(dict):
+    def __getattribute__(self, k):
+        try:
+            return self[k]
+        except:
+            return object.__getattribute__(self, k)
+            
     def __getattr__(self, k):
         try:
             return self[k]
