@@ -1,20 +1,20 @@
-.. image:: https://pypip.in/version/jsobject/badge.svg
+.. image:: https://img.shields.io/pypi/v/jsobject.svg
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: Latest Version
 
-.. image:: https://pypip.in/download/jsobject/badge.svg
+.. image:: https://img.shields.io/pypi/dm/jsobject.svg
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: Downloads
 
-.. image:: https://pypip.in/py_versions/jsobject/badge.svg
+.. image:: https://img.shields.io/pypi/pyversions/jsobject.svg
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: Supported Python versions
 
-.. image:: https://pypip.in/license/jsobject/badge.svg
+.. image:: https://img.shields.io/pypi/l/jsobject.svg
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: License
 
-.. image:: https://pypip.in/status/jsobject/badge.svg
+.. image:: https://img.shields.io/pypi/status/jsobject.svg
     :target: https://pypi.python.org/pypi/jsobject/
     :alt: Development Status
 
